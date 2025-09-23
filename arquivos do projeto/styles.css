@@ -105,10 +105,15 @@ header nav ul li:hover::after {
     justify-content: center;
     align-items: center;
     opacity: 0;
+
+    /* transition: opacity 0.5s ease; */
+    transform: translateX(100vw);
+    transition: transform 0.7s ease-in-out, opacity 0.5s ease-in-out;
 }
 
 .active {
     opacity: 1;
+    transform: translateX(0);
 }
 
 .product-img {
@@ -119,12 +124,25 @@ header nav ul li:hover::after {
     justify-content: center;
     position: relative;
     z-index: 2;
+
+    
+    
 }
 
 .product-img img {
     max-width: 80%;
     max-height: 60%;
     filter: drop-shadow(0 0 30px rgba(0, 247, 255, 0.3));
+    /* ANIMACAO */
+    transform: translateX(200px);
+    opacity: 0;
+    transition: 0.6s ease, opacity 0.6s ease;
+    transition-delay: 0.5s;
+}
+
+.active .product-img img {
+    transform: translateX(0);
+    opacity: 1;
 }
 
 .content {
@@ -144,7 +162,16 @@ header nav ul li:hover::after {
     font-weight: 600;
     letter-spacing: 2px;
     margin-bottom: 10px;
+     /* ANIMACAO */
+     transform: translateX(200px);
+    opacity: 0;
+    transition: 0.6s ease, opacity 0.6s ease;
+    transition-delay: 0.5s;
 
+}
+.active .product-tag {
+    transform: translateX(0);
+    opacity: 1;
 }
 
 .product-name {
@@ -152,7 +179,16 @@ header nav ul li:hover::after {
     font-family: "Orbitron", sans-serif;
     line-height: 1.1;
     margin-bottom: 20px;
-    
+    /* ANIMACAO */
+     transform: translateX(200px);
+    opacity: 0;
+    transition: 0.6s ease, opacity 0.6s ease;
+    transition-delay: 0.5s;
+}
+
+.active .product-name {
+    transform: translateX(0);
+    opacity: 1;
 }
 
 .description {
@@ -161,9 +197,16 @@ header nav ul li:hover::after {
     line-height: 1.6;
     margin-bottom: 30px;
     max-width: 600px;
-
+    /* ANIMACAO */
+     transform: translateX(200px);
+    opacity: 0;
+    transition: 0.6s ease, opacity 0.6s ease;
+    transition-delay: 0.5s;
 }
-
+.active .description {
+    transform: translateX(0);
+    opacity: 1;
+}
 .btn {
     padding: 12px 16px;
     background: linear-gradient(90deg, #00f7ff, #0066ff); 
@@ -172,17 +215,31 @@ header nav ul li:hover::after {
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
+     /* ANIMACAO */
+     transform: translateX(200px);
+    opacity: 0;
+    transition: 0.6s ease, opacity 0.6s ease;
+    transition-delay: 0.5s;
     
+}
+.active .btn {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.btn:hover {
+     background-color: rgba(0, 247, 255, 0.2);
+    border-color: #00f7ff;
 }
 
 .arrows {
-    position:absolute;
+    position: absolute;
     width: 90%;
     justify-content: space-between;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 5;
+    z-index: 100;
     display: flex;
     
 }
@@ -193,13 +250,19 @@ header nav ul li:hover::after {
     border-radius: 50%;
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(0, 247, 255, 0.3);
+    border: 1px solid rgba(0,247,255,0.3)
   
 }
 
 .arrow-btn:hover {
     background-color: rgba(0, 247, 255, 0.2);
     border-color: #00f7ff;
+}
+
+.arrow-btn svg {
+    color: #00f7ff;
+    border-color: #00f7ff;
+    fill: #00f7ff;
 }
 
 .indicators {
@@ -222,9 +285,61 @@ header nav ul li:hover::after {
 }
 
 .dots {
-
+    display: flex;
+    gap:10px;
 }
 
 .dot {
+    width: 40px;
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+}
 
+.dot.active {
+    background-color: #00f7ff;
+    box-shadow: 0 0 10px rgba(0, 247, 255, 0.5);
+}
+
+.tech-circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 247, 255, 0.2)
+}
+
+.circle:nth-child(1) {
+    width: 200px;
+    height: 200px;
+    top: 10%;
+    left: 10%;
+}
+
+.circle:nth-child(2) {
+    width: 300px;
+    height: 300px;
+    top: 60%;
+    left: 20%;
+}
+
+.circle:nth-child(3) {
+    width: 150px;
+    height: 150px;
+    top: 70%;
+    left: 80%;
+}
+.circle:nth-child(4) {
+    width: 120px;
+    height: 120px;
+    top: 20%;
+    left: 70%;
 }
